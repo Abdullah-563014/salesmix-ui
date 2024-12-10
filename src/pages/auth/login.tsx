@@ -1,14 +1,9 @@
-type Props = {
-  name: string;
-  age: number;
-};
+import { FC } from "react";
 
-const Login = ({ name, age }: Props) => {
+const Login: FC = () => {
   return (
     <div>
       <h1>Login page</h1>
-      <p>name is: {name}</p>
-      <p>age is: {age}</p>
     </div>
   );
 };
