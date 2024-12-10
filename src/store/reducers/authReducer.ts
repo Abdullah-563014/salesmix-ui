@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "..";
 import request from "../../config/dev";
 import { API_STATE } from "../../utils/constants";
 import { removeCookies } from "../../utils/helpsrs";
@@ -43,7 +44,7 @@ export const authSlice = createSlice({
   }
 });
 
-// Action creators are generated for each case reducer function
 export const { logoutSuccess } = authSlice.actions;
+export const authSelector = (state: RootState) => state.authReducer;
 
 export default authSlice.reducer;

@@ -1,6 +1,16 @@
-import { NavLink, NavLinkRenderProps, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Navigate, NavLink, NavLinkRenderProps, Outlet } from "react-router-dom";
+import { authSelector } from "../store/reducers/authReducer";
+import { pageUrls } from "../utils/routes";
 
 const Layout = () => {
+  const { token } = useSelector(authSelector);
+
+  if (!token) {
+    console.log("no token");
+    return <Navigate to={pageUrls.loginPage} />;
+  }
+
   const listClassName = "my-1 bg-slate-400 cursor-pointer";
 
   const getClassName = (navInfo: NavLinkRenderProps) => {

@@ -4,8 +4,8 @@ import Layout from "./pages/Layout";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/auth/login";
 import Registration from "./pages/auth/registration";
-import Home from "./pages/dashboard/home";
-import Profile from "./pages/dashboard/profile";
+import Home from "./pages/dashboard/Home";
+import Profile from "./pages/dashboard/Profile";
 import { pageUrls } from "./utils/routes";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path={pageUrls.loginPage} element={<Login />} />
         <Route path={pageUrls.registrationPage} element={<Registration />} />
 
-        <Route path="/*" element={<Layout />}>
+        <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path={pageUrls.profilePage} element={<Profile />} />
         </Route>
